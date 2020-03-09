@@ -1,0 +1,12 @@
+Major: Following keyword arguments for babble.load_list were removed:
+    filenames
+Minor: Following keyword arguments for babble.load_list were added:
+    filename: str
+Major: Following side effects for babble.load_list were removed:
+    Creates/Modifies files
+Major: Following positional arguments for babble.generate_phrase were removed:
+    _list list
+Minor: Following keyword arguments for babble.generate_phrase were added:
+    _list: list
+Change type: major
+Changed version from 0.0.1-beta to 0.0.1-beta.1
