@@ -1,1 +1,4 @@
-Set version to 0.0.1-beta (from 0.0.1)
+Major: Following functions were removed:
+    babble.load_list
+Change type: major
+Changed version from 0.0.1-beta.1 to 0.0.1-beta.2
