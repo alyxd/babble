@@ -11,7 +11,7 @@ def generate_wordlist_from(filename, letters=string.letters,
         for line in _file.readlines():
             wordlist.extend(word.strip().lower() for word in line.split(' ') if
                             (not set(word).difference(letters)) and
-                            word and
+                            len(word) > 2 and
                            encode(word.strip().lower()) not in profanity_filter)
     return list(sorted(set(wordlist), key=len)) # set removes duplicates
 
