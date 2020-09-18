@@ -1,10 +1,9 @@
 from os import urandom
 import os.path
 
-_BABBLE_DIR = os.path.join(*os.path.split(__file__)[:-1])
-FILENAME = os.path.join(_BABBLE_DIR, "wordlist.py")
-print _BABBLE_DIR, FILENAME
-assert isinstance(FILENAME, str), FILENAME
+import babble.wordlist
+
+WORDLIST = babble.wordlist.WORDLIST
 
 def check_list(_list):
     """ usage: check_list(_list)
@@ -45,21 +44,6 @@ def sample(_list, n):
         output.append(_list[index])
     assert(len(output) == n)
     return output
-
-def load_list(filename=FILENAME):
-    """ usage: load_list(filename=FILENAME) => list
-
-        Creates a list whose contents are the lines of the specified files.
-        Performs check_list to ensure the list contents are suitable.
-            - Raises ValueError if they are not
-        Raises IOError if there are issues reading the word lists or data. """
-    with open(filename, 'r') as _file:
-        _list = _file.read().split('\n')
-    _list = list(set(_list))[:4096]
-    check_list(_list)
-    return _list
-
-WORDLIST = load_list()
 
 def generate_phrase(length, _list=WORDLIST):
     """ usage: generate_phrase(length, list) => string
